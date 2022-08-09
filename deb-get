@@ -2416,7 +2416,7 @@ function deb_mullvad-vpn() {
 function deb_musikcube() {
     get_github_releases "https://api.github.com/repos/clangen/musikcube/releases/latest"
     if [ "${ACTION}" != "prettylist" ]; then
-        URL="$(grep "browser_download_url.*.deb" "${CACHE_DIR}/${APP}.json" | head -n1 | cut -d'"' -f4)"
+        URL="$(grep "browser_download_url.*${ARCHS_SUPPORTED}.deb" "${CACHE_DIR}/${APP}.json" | head -n1 | cut -d'"' -f4)"
         VERSION_PUBLISHED="$(echo "${URL}" | cut -d'/' -f8)"
     fi
     PRETTY_NAME="musikcube"
