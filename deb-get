@@ -2416,7 +2416,10 @@ function deb_mullvad-vpn() {
 function deb_beyond-compare() {
     if [ "${ACTION}" != "prettylist" ]; then
         VERSION_PUBLISHED=$(curl -s -S https://www.scootersoftware.com/download.php | grep -Eo "Current Version:.*, released" | cut --complement -c -23 | sed 's/\,\ build\ /\./;s/\, released//')
-        URL="https://www.scootersoftware.com/bcompare-${VERSION_PUBLISHED}_amd64.deb"
+        URL="https://www.scootersoftware.com/bcompare-${VERSION_PUBLISHED}_${ARCHS_SUPPORTED}.deb"
+        echo -e "URL:\t ${URL}"
+        echo -e "VERSION_PUBLISHED:\t ${VERSION_PUBLISHED}"
+        sleep 45
     fi
     PRETTY_NAME="Beyond Compare"
     WEBSITE="https://www.scootersoftware.com/"
